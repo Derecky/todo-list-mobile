@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import React from 'react';
 import { FlatList, ScrollView, Text, View } from 'react-native';
 import { CreateTaskBar } from '../../components/CreateTaskBar';
@@ -49,13 +49,17 @@ export function Home() {
   const QUANTITY_COMPLETED = 0;
 
   const CARDS_TESTE: any[] = [
-    // '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-    // '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+    '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
   ]
 
   return(
     <View style={styles.homeContainer}>
-      <StatusBar style='light'/>
+      <StatusBar 
+        barStyle='light-content' 
+        backgroundColor='transparent'
+        translucent
+      />
       <Header />
       <CreateTaskBar />
       <View style={styles.container}>
