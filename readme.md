@@ -4,7 +4,7 @@
 - [x] Criar componente Header:
   - [x] Fazer react-native entender SVG
   - [x] Delimitar o header 
-- [ ] Criar componente Input (InputBar)
+- [x] Criar componente Input (InputBar)
 - [ ] Task Container:
   - [ ] Criar o Cabeçalho
   - [ ] Listagem de tarefas:
