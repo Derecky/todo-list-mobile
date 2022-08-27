@@ -1,11 +1,14 @@
-import { StatusBar } from 'react-native';
-import React from 'react';
-import { FlatList, ScrollView, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import {StatusBar } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { CreateTaskBar } from '../../components/CreateTaskBar';
 import { Header } from '../../components/Header';
 import { TaskCard } from '../../components/TaskCard';
 import { styles } from './styles';
 import EmptyStateSVG from '../../assets/svg/Clipboard.svg'
+import { Task } from '../../models/Task';
+
+import { faker } from '@faker-js/faker'
 
 function renderHeaderTaskContainer(quantityCreated: number, quantityCompleted: number) {
   return (
@@ -45,13 +48,50 @@ function renderEmptyState() {
 }
 
 export function Home() {
-  const QUANTITY_CREATED = 100;
-  const QUANTITY_COMPLETED = 0;
+  const [ tasks, setTasks ] = useState<Task[]>([
+    {_id: '1', title: 'Estudar React', isCompleted: false},
+    {_id: '2', title: 'Comer fruta', isCompleted: true},
+    {_id: '3', title: 'Estudar webpack', isCompleted: false},
+  ])
 
-  const CARDS_TESTE: any[] = [
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-    '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
-  ]
+  function createTask(taskTitle: string) {
+    const newTask: Task = {
+      _id: faker.datatype.uuid(),
+      title: taskTitle,
+      isCompleted: false
+    }
+    setTasks(oldState => [...oldState, newTask])
+  }
+
+  function deleteTask(idTask: string){
+    setTasks(oldState => oldState.filter(task => task._id !== idTask))
+  }
+
+  function completeTask(idTask: string){
+    const newTaskState: Task[] = [...tasks].map(task => {
+      if(task._id == idTask){
+        task.isCompleted = !task.isCompleted
+      }
+      return task
+    })
+    setTasks(newTaskState)
+  }
+
+  function agruparPor(tasks: Task[]) {
+    let count = 0;
+
+    tasks.forEach(task => {
+      if(task.isCompleted){
+        count++;
+      }
+    })
+   
+    return count
+  }
+
+  const QUANTITY_CREATED = tasks.length
+
+  const QUANTITY_COMPLETED = agruparPor(tasks)
 
   return(
     <View style={styles.homeContainer}>
@@ -61,13 +101,19 @@ export function Home() {
         translucent
       />
       <Header />
-      <CreateTaskBar />
+      <CreateTaskBar addTask={createTask}/>
       <View style={styles.container}>
         {renderHeaderTaskContainer(QUANTITY_CREATED, QUANTITY_COMPLETED)}
         <FlatList 
-          data={CARDS_TESTE}
-          renderItem={item => (<TaskCard />)}
-          keyExtractor={item => (item)}
+          data={tasks}
+          renderItem={renderTask => (
+            <TaskCard 
+              task={renderTask.item}
+              removeTask={deleteTask}
+              completeTask={completeTask}
+            />
+          )}
+          keyExtractor={task => (task._id)}
           ListEmptyComponent={renderEmptyState}
           showsVerticalScrollIndicator={false}
         />

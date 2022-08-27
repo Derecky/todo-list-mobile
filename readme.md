@@ -12,12 +12,12 @@
   - [x] Criar empty state
 
 ## Funcionalidade:
-  - [ ] Criar repositório de tarefas
-  - [ ] adicionar uma nova tarefa ao repositório
-  - [ ] remover tarefa do repositório
-  - [ ] Mostrar empty state quando repositório estiver vazio
-  - [ ] Concluir tarefas
-  - [ ] Mostrar número de tarefas criadas e concluídas
+  - [x] Criar repositório de tarefas
+  - [x] adicionar uma nova tarefa ao repositório
+  - [x] remover tarefa do repositório
+  - [x] Mostrar empty state quando repositório estiver vazio
+  - [x] Concluir tarefas
+  - [x] Mostrar número de tarefas criadas e concluídas
 
 ## Modelos utilizados
 
