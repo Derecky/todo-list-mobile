@@ -1,7 +1,9 @@
 # Todo list
 
 ## Layout:
-- [ ] Criar componente Header
+- [ ] Criar componente Header:
+  - [ ] Fazer react-native entender SVG
+  - [x] Delimitar o header 
 - [ ] Criar componente Input (InputBar)
 - [ ] Task Container:
   - [ ] Criar o Cabeçalho
