@@ -5,11 +5,11 @@
   - [x] Fazer react-native entender SVG
   - [x] Delimitar o header 
 - [x] Criar componente Input (InputBar)
-- [ ] Task Container:
+- [x] Task Container:
   - [x] Criar o Cabeçalho
   - [x] Listagem de tarefas:
     - [x]  Criar componente Tarefa
-  - [ ] Criar empty state
+  - [x] Criar empty state
 
 ## Funcionalidade:
   - [ ] Criar repositório de tarefas
@@ -32,7 +32,7 @@ type Task = {
 ```
 
 CRUD:
-C - Create
-R - Read
-U - Update
-D - Delete
+- C: Create
+- R: Read
+- U: Update
+- D: Delete

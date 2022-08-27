@@ -14,8 +14,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingBottom: 20,
-    borderBottomColor: '#333333',
-    borderBottomWidth: 1
   },
   labelContainer: {
     flexDirection: 'row'
@@ -40,6 +38,21 @@ export const styles = StyleSheet.create({
   },
   created: {
     color: '#4EA8DE',
+  },
+  emptyStateContainer: {
+    height: 208,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderTopColor: '#333333',
+    borderTopWidth: 1
+  },
+  emptyStateTextBold: {
+    fontWeight: 'bold',
+    marginTop: 16
+  },
+  emptyStateSubtitle: {
+    color: '#808080',
+    fontSize: 14
   }
 
 })
