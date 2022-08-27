@@ -6,7 +6,7 @@
   - [x] Delimitar o header 
 - [x] Criar componente Input (InputBar)
 - [ ] Task Container:
-  - [ ] Criar o Cabeçalho
+  - [x] Criar o Cabeçalho
   - [ ] Listagem de tarefas:
     - [ ]  Criar componente Tarefa
   - [ ] Criar empty state
