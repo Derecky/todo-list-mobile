@@ -13,10 +13,9 @@ export function TaskCard() {
       <BouncyCheckbox
         size={18}
         fillColor="#5E60CE"
+        text="Integer urna interdum massa libero auctor neque turpis turpis semper."
+        style={styles.title}
       />
-      <Text style={styles.title}>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-      </Text>
       <TouchableOpacity style={styles.removeBtn}>
         <TrashSVG />
       </TouchableOpacity>
