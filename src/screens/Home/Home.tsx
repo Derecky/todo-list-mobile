@@ -1,11 +1,12 @@
-import { StatusBar } from 'react-native';
-import React from 'react';
-import { FlatList, ScrollView, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import {StatusBar } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { CreateTaskBar } from '../../components/CreateTaskBar';
 import { Header } from '../../components/Header';
 import { TaskCard } from '../../components/TaskCard';
 import { styles } from './styles';
 import EmptyStateSVG from '../../assets/svg/Clipboard.svg'
+import { Task } from '../../models/Task';
 
 function renderHeaderTaskContainer(quantityCreated: number, quantityCompleted: number) {
   return (
@@ -45,13 +46,14 @@ function renderEmptyState() {
 }
 
 export function Home() {
+  const [ tasks, setTasks ] = useState<Task[]>([
+    {_id: '1', title: 'Estudar React', isCompleted: false},
+    {_id: '2', title: 'Comer fruta', isCompleted: false},
+    {_id: '3', title: 'Estudar webpack', isCompleted: false},
+  ])
+
   const QUANTITY_CREATED = 100;
   const QUANTITY_COMPLETED = 0;
-
-  const CARDS_TESTE: any[] = [
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-    '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
-  ]
 
   return(
     <View style={styles.homeContainer}>
@@ -65,9 +67,9 @@ export function Home() {
       <View style={styles.container}>
         {renderHeaderTaskContainer(QUANTITY_CREATED, QUANTITY_COMPLETED)}
         <FlatList 
-          data={CARDS_TESTE}
-          renderItem={item => (<TaskCard />)}
-          keyExtractor={item => (item)}
+          data={tasks}
+          renderItem={renderTask => (<TaskCard task={renderTask.item}/>)}
+          keyExtractor={task => (task._id)}
           ListEmptyComponent={renderEmptyState}
           showsVerticalScrollIndicator={false}
         />
