@@ -50,7 +50,7 @@ function renderEmptyState() {
 export function Home() {
   const [ tasks, setTasks ] = useState<Task[]>([
     {_id: '1', title: 'Estudar React', isCompleted: false},
-    {_id: '2', title: 'Comer fruta', isCompleted: false},
+    {_id: '2', title: 'Comer fruta', isCompleted: true},
     {_id: '3', title: 'Estudar webpack', isCompleted: false},
   ])
 
@@ -65,6 +65,16 @@ export function Home() {
 
   function deleteTask(idTask: string){
     setTasks(oldState => oldState.filter(task => task._id !== idTask))
+  }
+
+  function completeTask(idTask: string){
+    const newTaskState: Task[] = [...tasks].map(task => {
+      if(task._id == idTask){
+        task.isCompleted = !task.isCompleted
+      }
+      return task
+    })
+    setTasks(newTaskState)
   }
 
   const QUANTITY_CREATED = 100;
@@ -87,6 +97,7 @@ export function Home() {
             <TaskCard 
               task={renderTask.item}
               removeTask={deleteTask}
+              completeTask={completeTask}
             />
           )}
           keyExtractor={task => (task._id)}

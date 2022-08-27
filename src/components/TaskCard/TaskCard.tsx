@@ -9,15 +9,20 @@ import { styles } from './styles'
 
 type TaskCardProps = {
   task: Task;
-  removeTask: (idTask: string) => void
+  removeTask: (idTask: string) => void;
+  completeTask: (idTask: string) => void;
 }
 
  
-export function TaskCard({ task, removeTask }: TaskCardProps) {
-  const { title, _id } = task;
+export function TaskCard({ task, removeTask, completeTask }: TaskCardProps) {
+  const { title, _id, isCompleted } = task;
 
   function handleRemove(){
     removeTask(_id)
+  }
+
+  function handleToggleCheckTask() {
+    completeTask(_id)
   }
 
   return (
@@ -27,6 +32,8 @@ export function TaskCard({ task, removeTask }: TaskCardProps) {
         fillColor="#5E60CE"
         text={title}
         style={styles.title}
+        isChecked={isCompleted}
+        onPress={handleToggleCheckTask}
       />
       <TouchableOpacity 
         onPress={handleRemove}
