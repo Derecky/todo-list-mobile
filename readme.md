@@ -7,8 +7,8 @@
 - [x] Criar componente Input (InputBar)
 - [ ] Task Container:
   - [x] Criar o Cabeçalho
-  - [ ] Listagem de tarefas:
-    - [ ]  Criar componente Tarefa
+  - [x] Listagem de tarefas:
+    - [x]  Criar componente Tarefa
   - [ ] Criar empty state
 
 ## Funcionalidade:

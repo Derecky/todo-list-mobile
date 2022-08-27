@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import { CreateTaskBar } from '../../components/CreateTaskBar';
 import { Header } from '../../components/Header';
+import { TaskCard } from '../../components/TaskCard';
 import { styles } from './styles';
 
 function renderHeaderTaskContainer(quantityCreated: number, quantityCompleted: number) {
@@ -39,6 +40,26 @@ export function Home() {
       <CreateTaskBar />
       <View style={styles.container}>
         {renderHeaderTaskContainer(QUANTITY_CREATED, QUANTITY_COMPLETED)}
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+        >
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
+        </ScrollView>
       </View>
     </View>
   )
