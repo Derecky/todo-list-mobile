@@ -9,11 +9,16 @@ import { styles } from './styles'
 
 type TaskCardProps = {
   task: Task;
+  removeTask: (idTask: string) => void
 }
 
  
-export function TaskCard({ task }: TaskCardProps) {
-  const { title } = task;
+export function TaskCard({ task, removeTask }: TaskCardProps) {
+  const { title, _id } = task;
+
+  function handleRemove(){
+    removeTask(_id)
+  }
 
   return (
     <View style={styles.container}>
@@ -23,7 +28,10 @@ export function TaskCard({ task }: TaskCardProps) {
         text={title}
         style={styles.title}
       />
-      <TouchableOpacity style={styles.removeBtn}>
+      <TouchableOpacity 
+        onPress={handleRemove}
+        style={styles.removeBtn}
+      >
         <TrashSVG />
       </TouchableOpacity>
     </View>

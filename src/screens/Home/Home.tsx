@@ -63,6 +63,10 @@ export function Home() {
     setTasks(oldState => [...oldState, newTask])
   }
 
+  function deleteTask(idTask: string){
+    setTasks(oldState => oldState.filter(task => task._id !== idTask))
+  }
+
   const QUANTITY_CREATED = 100;
   const QUANTITY_COMPLETED = 0;
 
@@ -79,7 +83,12 @@ export function Home() {
         {renderHeaderTaskContainer(QUANTITY_CREATED, QUANTITY_COMPLETED)}
         <FlatList 
           data={tasks}
-          renderItem={renderTask => (<TaskCard task={renderTask.item}/>)}
+          renderItem={renderTask => (
+            <TaskCard 
+              task={renderTask.item}
+              removeTask={deleteTask}
+            />
+          )}
           keyExtractor={task => (task._id)}
           ListEmptyComponent={renderEmptyState}
           showsVerticalScrollIndicator={false}

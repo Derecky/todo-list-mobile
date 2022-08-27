@@ -14,8 +14,8 @@
 ## Funcionalidade:
   - [x] Criar repositório de tarefas
   - [x] adicionar uma nova tarefa ao repositório
-  - [ ] remover tarefa do repositório
-  - [ ] Mostrar empty state quando repositório estiver vazio
+  - [x] remover tarefa do repositório
+  - [x] Mostrar empty state quando repositório estiver vazio
   - [ ] Concluir tarefas
   - [ ] Mostrar número de tarefas criadas e concluídas
 
