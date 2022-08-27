@@ -17,7 +17,7 @@
   - [x] remover tarefa do repositório
   - [x] Mostrar empty state quando repositório estiver vazio
   - [x] Concluir tarefas
-  - [ ] Mostrar número de tarefas criadas e concluídas
+  - [x] Mostrar número de tarefas criadas e concluídas
 
 ## Modelos utilizados
 
