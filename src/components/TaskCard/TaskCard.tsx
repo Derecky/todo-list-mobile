@@ -11,6 +11,7 @@ export function TaskCard() {
   return (
     <View style={styles.container}>
       <BouncyCheckbox
+        size={18}
         fillColor="#5E60CE"
       />
       <Text style={styles.title}>
