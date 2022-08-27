@@ -8,6 +8,8 @@ import { styles } from './styles';
 import EmptyStateSVG from '../../assets/svg/Clipboard.svg'
 import { Task } from '../../models/Task';
 
+import { faker } from '@faker-js/faker'
+
 function renderHeaderTaskContainer(quantityCreated: number, quantityCompleted: number) {
   return (
     <View style={styles.labelsContainer}>
@@ -52,6 +54,15 @@ export function Home() {
     {_id: '3', title: 'Estudar webpack', isCompleted: false},
   ])
 
+  function createTask(taskTitle: string) {
+    const newTask: Task = {
+      _id: faker.datatype.uuid(),
+      title: taskTitle,
+      isCompleted: false
+    }
+    setTasks(oldState => [...oldState, newTask])
+  }
+
   const QUANTITY_CREATED = 100;
   const QUANTITY_COMPLETED = 0;
 
@@ -63,7 +74,7 @@ export function Home() {
         translucent
       />
       <Header />
-      <CreateTaskBar />
+      <CreateTaskBar addTask={createTask}/>
       <View style={styles.container}>
         {renderHeaderTaskContainer(QUANTITY_CREATED, QUANTITY_COMPLETED)}
         <FlatList 
