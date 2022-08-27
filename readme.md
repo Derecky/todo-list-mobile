@@ -1,21 +1,21 @@
 # Todo list
 
 ## Layout:
-[] - Criar componente Header
-[] - Criar componente Input (InputBar)
-[] - Task Container:
-  [] - Criar o Cabeçalho
-  [] - Listagem de tarefas:
-    [] -  Criar componente Tarefa
-  [] - Criar empty state
+- [ ] Criar componente Header
+- [ ] Criar componente Input (InputBar)
+- [ ] Task Container:
+  - [ ] Criar o Cabeçalho
+  - [ ] Listagem de tarefas:
+    - [ ]  Criar componente Tarefa
+  - [ ] Criar empty state
 
 ## Funcionalidade:
-  [] - Criar repositório de tarefas
-  [] - adicionar uma nova tarefa ao repositório
-  [] - remover tarefa do repositório
-  [] - Mostrar empty state quando repositório estiver vazio
-  [] - Concluir tarefas
-  [] - Mostrar número de tarefas criadas e concluídas
+  - [ ] Criar repositório de tarefas
+  - [ ] adicionar uma nova tarefa ao repositório
+  - [ ] remover tarefa do repositório
+  - [ ] Mostrar empty state quando repositório estiver vazio
+  - [ ] Concluir tarefas
+  - [ ] Mostrar número de tarefas criadas e concluídas
 
 ## Modelos utilizados
 
