@@ -77,21 +77,17 @@ export function Home() {
     setTasks(newTaskState)
   }
 
-  function agruparPor(tasks: Task[]) {
-    let count = 0;
-
-    tasks.forEach(task => {
-      if(task.isCompleted){
-        count++;
-      }
-    })
-   
-    return count
+  function countCompletedTasks(tasks: Task[]) {    
+    const response = tasks.reduce((acc, task) => {
+      return task.isCompleted ? acc + 1 : acc;
+    }, 0)
+    
+    return response
   }
 
   const QUANTITY_CREATED = tasks.length
 
-  const QUANTITY_COMPLETED = agruparPor(tasks)
+  const QUANTITY_COMPLETED = countCompletedTasks(tasks)
 
   return(
     <View style={styles.homeContainer}>
