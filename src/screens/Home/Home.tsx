@@ -57,9 +57,8 @@ export function Home() {
     return response
   }
 
-  const QUANTITY_CREATED = tasks.length
-
-  const QUANTITY_COMPLETED = countCompletedTasks(tasks)
+  const quantityCreated = tasks.length
+  const quantityCompleted = countCompletedTasks(tasks)
 
   return(
     <View style={styles.homeContainer}>
@@ -71,7 +70,7 @@ export function Home() {
       <Header />
       <CreateTaskBar />
       <View style={styles.container}>
-        {renderHeaderTaskContainer(QUANTITY_CREATED, QUANTITY_COMPLETED)}
+        {renderHeaderTaskContainer(quantityCreated, quantityCompleted)}
         <FlatList 
           data={tasks}
           renderItem={renderTask => (
