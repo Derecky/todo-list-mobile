@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import React, { useContext } from "react";
+import { TouchableOpacity, View } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import TrashSVG from '../../assets/svg/trash.svg';
+import { TaskContext } from "../../contexts/TaskContext";
 import { Task } from "../../models/Task";
 
 import { styles } from './styles'
 
 type TaskCardProps = {
   task: Task;
-  removeTask: (idTask: string) => void;
-  completeTask: (idTask: string) => void;
 }
 
  
-export function TaskCard({ task, removeTask, completeTask }: TaskCardProps) {
+export function TaskCard({ task }: TaskCardProps) {
   const { title, _id, isCompleted } = task;
+  const { deleteTask, completeTask} = useContext(TaskContext)
 
   function handleRemove(){
-    removeTask(_id)
+    deleteTask(_id)
   }
 
   function handleToggleCheckTask() {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import {StatusBar } from 'react-native';
 import { FlatList, Text, View } from 'react-native';
 import { CreateTaskBar } from '../../components/CreateTaskBar';
@@ -8,7 +8,7 @@ import { styles } from './styles';
 import EmptyStateSVG from '../../assets/svg/Clipboard.svg'
 import { Task } from '../../models/Task';
 
-import { faker } from '@faker-js/faker'
+import { TaskContext } from '../../contexts/TaskContext';
 
 function renderHeaderTaskContainer(quantityCreated: number, quantityCompleted: number) {
   return (
@@ -48,34 +48,8 @@ function renderEmptyState() {
 }
 
 export function Home() {
-  const [ tasks, setTasks ] = useState<Task[]>([
-    {_id: '1', title: 'Estudar React', isCompleted: false},
-    {_id: '2', title: 'Comer fruta', isCompleted: true},
-    {_id: '3', title: 'Estudar webpack', isCompleted: false},
-  ])
 
-  function createTask(taskTitle: string) {
-    const newTask: Task = {
-      _id: faker.datatype.uuid(),
-      title: taskTitle,
-      isCompleted: false
-    }
-    setTasks(oldState => [...oldState, newTask])
-  }
-
-  function deleteTask(idTask: string){
-    setTasks(oldState => oldState.filter(task => task._id !== idTask))
-  }
-
-  function completeTask(idTask: string){
-    const newTaskState: Task[] = [...tasks].map(task => {
-      if(task._id == idTask){
-        task.isCompleted = !task.isCompleted
-      }
-      return task
-    })
-    setTasks(newTaskState)
-  }
+  const { tasks } = useContext(TaskContext)
 
   function countCompletedTasks(tasks: Task[]) {    
     const response = tasks.reduce((acc, task) => {
@@ -97,7 +71,7 @@ export function Home() {
         translucent
       />
       <Header />
-      <CreateTaskBar addTask={createTask}/>
+      <CreateTaskBar />
       <View style={styles.container}>
         {renderHeaderTaskContainer(QUANTITY_CREATED, QUANTITY_COMPLETED)}
         <FlatList 
@@ -105,8 +79,6 @@ export function Home() {
           renderItem={renderTask => (
             <TaskCard 
               task={renderTask.item}
-              removeTask={deleteTask}
-              completeTask={completeTask}
             />
           )}
           keyExtractor={task => (task._id)}
