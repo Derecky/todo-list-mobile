@@ -5,6 +5,10 @@ import { useTask } from "../../hooks/useTask";
 
 import { styles } from './styles';
 
+
+const PLACEHOLDER_TEXT = 'Adicione uma nova tarefa'
+const PLACEHOLDER_TEXT_COLOR = '#808080'
+
 export function CreateTaskBar () {
   const [ newTask, setNewTask ] = useState<string>("")
   const { createTask } = useTask();
@@ -19,6 +23,8 @@ export function CreateTaskBar () {
       <TextInput 
         style={styles.input}
         onChangeText={setNewTask}
+        placeholder={PLACEHOLDER_TEXT}
+        placeholderTextColor={PLACEHOLDER_TEXT_COLOR}
       />
       <TouchableOpacity 
         style={styles.button}

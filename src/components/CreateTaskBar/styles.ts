@@ -1,3 +1,4 @@
+import { Placeholder } from "@faker-js/faker/modules/image/providers/placeholder";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -18,7 +19,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
 
     padding: 16,
-    color: '#808080',
+    color: '#F2F2F2',
     fontSize: 16,
   },
   button: {
