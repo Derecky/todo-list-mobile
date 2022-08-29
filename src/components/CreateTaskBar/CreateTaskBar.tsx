@@ -1,13 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { View, TextInput, TouchableOpacity } from "react-native";
 import PlusSVG from '../../assets/svg/plus.svg';
-import { TaskContext } from "../../contexts/TaskContext";
+import { useTask } from "../../hooks/useTask";
 
 import { styles } from './styles';
 
 export function CreateTaskBar () {
   const [ newTask, setNewTask ] = useState<string>("")
-  const { createTask } = useContext(TaskContext)
+  const { createTask } = useTask();
 
   function handleCreateTask (){
     createTask(newTask)

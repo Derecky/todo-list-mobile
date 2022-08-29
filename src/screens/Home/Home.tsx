@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {StatusBar } from 'react-native';
 import { FlatList, Text, View } from 'react-native';
 import { CreateTaskBar } from '../../components/CreateTaskBar';
@@ -7,8 +7,7 @@ import { TaskCard } from '../../components/TaskCard';
 import { styles } from './styles';
 import EmptyStateSVG from '../../assets/svg/Clipboard.svg'
 import { Task } from '../../models/Task';
-
-import { TaskContext } from '../../contexts/TaskContext';
+import { useTask } from '../../hooks/useTask';
 
 function renderHeaderTaskContainer(quantityCreated: number, quantityCompleted: number) {
   return (
@@ -49,8 +48,7 @@ function renderEmptyState() {
 
 export function Home() {
 
-  const { tasks } = useContext(TaskContext)
-
+  const { tasks } = useTask()
   function countCompletedTasks(tasks: Task[]) {    
     const response = tasks.reduce((acc, task) => {
       return task.isCompleted ? acc + 1 : acc;
