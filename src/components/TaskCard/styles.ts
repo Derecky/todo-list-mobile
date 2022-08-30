@@ -27,6 +27,7 @@ export const styles = StyleSheet.create({
     color: '#808080',
   },
   removeBtn: {
-  
+    backgroundColor: '#333333',
+    borderRadius: 4
   }
 })
