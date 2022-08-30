@@ -23,11 +23,26 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    backgroundColor: '#1E6F9F',
     width: 52,
     height: 52,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 6
+  },
+  btnUnpressed: {
+    width: 52,
+    height: 52,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 6,
+    backgroundColor: '#1E6F9F',
+  },
+  btnPressed: {
+    width: 52,
+    height: 52,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 6,
+    backgroundColor: '#4EA8DE',
   }
 })

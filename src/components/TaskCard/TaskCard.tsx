@@ -34,7 +34,8 @@ export function TaskCard({ task }: TaskCardProps) {
         },
         {
           text: 'Deletar',
-          onPress: () => {deleteTask(_id)}
+          onPress: () => {deleteTask(_id)},
+          style: 'default'
         }
       ]
     )
@@ -59,7 +60,6 @@ export function TaskCard({ task }: TaskCardProps) {
         onPress={handleRemove}
         style={pressed? styles.removeBtn: null}
         delayPressIn={5000}
-
       >
         {pressed ? <TrashRedSVG /> : <TrashSVG /> }
       </TouchableOpacity>
