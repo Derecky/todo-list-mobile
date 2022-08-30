@@ -25,13 +25,17 @@ export function TaskCard({ task }: TaskCardProps) {
     completeTask(_id)
   }
 
+  task._id === '1' ? console.log(isCompleted) : null
+  
+
   return (
     <View style={styles.container}>
       <BouncyCheckbox
         size={18}
         fillColor="#5E60CE"
         text={title}
-        style={styles.title}
+        style={styles.cardTitleContainer}
+        textStyle={isCompleted? styles.completedTitle : styles.notCompletedTitle}
         isChecked={isCompleted}
         onPress={handleToggleCheckTask}
       />

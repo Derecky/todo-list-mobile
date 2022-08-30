@@ -12,13 +12,19 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 8
   },
-  title: {
+  cardTitleContainer: {
     flex: 1,
     marginRight: 4,
-
+  },
+  notCompletedTitle: {
     fontSize: 14,
     fontWeight: '400',
     color: '#F2F2F2',
+  },
+  completedTitle: {
+    fontSize: 14,
+    fontWeight: '400',
+    color: '#808080',
   },
   removeBtn: {
   
